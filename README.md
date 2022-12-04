@@ -1,66 +1,145 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# TODOs
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- [ ] Migrations
+  - [x] User | **users**
+    - **nama** [_string_]
+    - **username** [_string | unique_]
+    - **email** [_string | unique_]
+    - **password** [_string_]
+  - [x] Admin | **admins**
+    - **user_id** [_foreignKey_]
+  - [ ] Pembina | **pembinas**
+    - **user_id** [_foreignKey_]
+    - jabatan_id
+    - desa_id
+    - nomor_urut
+  - [ ] PIK-R | **pikrs**
+    - **user_id** [_foreignKey_]
+    - desa_id
+    - sk_id
+    - pembina_id
+    - nama
+    - nomor_urut
+    - alamat
+    - basis
+    - akun_medsos
+    - sumber_dana
+    - keterpaduan_kelompok
+    - pro_pn
+    - materi_lainnya [*string*]
+    - sarana_lainnya [*string*]
+  - [ ] Provinsi | **provinsies**
+    - nama
+    - kode
+  - [ ] Kabupaten Kota | **kabkots**
+    - provinsi_id
+    - nama
+    - kode
+  - [ ] Kecamatan | **kecamatans**
+    - kabupaten_kota_id
+    - nama
+    - kode
+  - [ ] Desa | **desas**
+    - kecamatan_id
+    - nama
+  - [ ] Jabatan | **jabatans**
+    - nama
+  - [ ] Surat Keputusan | **surat_keputusans**
+    - nomor
+    - tanggal
+    - dikeluarkan_oleh
+  - [ ] Materi | **materies**
+    - nama
+  - [ ] Sarana | **saranas**
+    - nama
+  - [ ] Mitra | **mitras**
+    - nama
+  - [ ] Pengurus | **penguruses**
+    - pikr_id
+    - nama
+    - nik
+    - jabatan
+    - hp
+    - pernah_pelatihan
+  - [ ] Laporan Kegiatan | **laporans**
+    - tanggal
+  - [ ] Pelayanan Informasi | **pelayanan_informasies**
+    - pikr_id
+    - materi_id
+    - laporan_id
+    - materi_lainnya
+    - nama
+    - tanggal
+    - jabatan_narsum
+    - nama_narsum
+    - jumlah_peserta
+  - [ ] Konseling Individu | **konseling_individus**
+    - pikr_id
+    - materi_id
+    - pengurus_id
+    - laporan_id
+    - materi_lainnya
+    - tanggal
+    - jumlah_cowok
+    - jumlah_cewek
+    - jumlah_rawal
+    - jumlah_rtengah
+    - jumlah_rakhir
+  - [ ] Konseling Kelompok | **konseling_kelompoks**
+    - pikr_id
+    - materi_id
+    - pengurus_id
+    - laporan_id
+    - materi_lainnya
+    - tanggal
+    - jumlah_cowok
+    - jumlah_cewek
+    - jumlah_rawal
+    - jumlah_rtengah
+    - jumlah_rakhir
+  - [ ] pikr_sarana
+    - pikr_id
+    - sarana_id
+    - status
+  - [ ] pikr_materi
+    - pikr_id
+    - materi_id
+    - status
+  - [ ] pikr_mitra
+    - pikr_id
+    - mitra_id
+    - mou
+    - bentuk_kerjasama
+- [ ] Factories
+- [ ] Seeders
+- [ ] Relations
+  - [ ] User - Admin | **One To One**
+  - [ ] User - Pembina | **One To One**
+  - [ ] User - PIK-R | **One To One**
+  - [ ] Desa - Pembina | **One To Many**
+  - [ ] Jabatan - Pembina | **One To Many**
+  - [ ] Kecamatan - Desa | **One To Many**
+  - [ ] Kabupaten Kota - Kecamatan | **One To Many**
+  - [ ] Provinsi - Kabupaten Kota | **One To Many**
+  - [ ] Desa - PIK-R | **One To Many**
+  - [ ] Surat Keputusan - PIK-R | **One To One**
+  - [ ] Pembina - PIK-R | **One To Many**
+  - [ ] Materi - Pelayanan Informasi | **One To Many**
+  - [ ] Laporan - Pelayanan Informasi | **One To Many**
+  - [ ] Materi - Konseling Individu | **One To Many**
+  - [ ] Laporan - Konseling Individu | **One To Many**
+  - [ ] Pengurus - Konseling Individu | **One To Many**
+  - [ ] Materi - Konseling Kelompok | **One To Many**
+  - [ ] Laporan - Konseling Kelompok | **One To Many**
+  - [ ] Pengurus - Konseling Kelompok | **One To Many**
+  - [ ] PIK-R - Laporan Kegiatan | **One To Many**
+  - [ ] PIK-R - Pengurus | **One To Many**
+  - [ ] PIK-R - Materi | **Many To Many**
+  - [ ] PIK-R - Sarana | **Many To Many**
+  - [ ] PIK-R - Mitra | **Many To Many**
+- [ ] Register
+  - [ ] PIK-R
+- [ ] Login
+  - [ ] Admin
+  - [ ] Pembina
+  - [ ] PIK-R
