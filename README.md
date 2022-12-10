@@ -1,118 +1,116 @@
 # TODOs
 
-- [ ] Migrations
+- Migrations
   - [x] User | **users**
     - **nama** [_string_]
     - **username** [_string | unique_]
     - **email** [_string | unique_]
     - **password** [_string_]
   - [x] Admin | **admins**
-    - **user_id** [_foreignKey_]
-  - [ ] Pembina | **pembinas**
-    - **user_id** [_foreignKey_]
-    - jabatan_id
-    - desa_id
-    - nomor_urut
-  - [ ] PIK-R | **pikrs**
-    - **user_id** [_foreignKey_]
-    - desa_id
-    - sk_id
-    - pembina_id
-    - nama
-    - nomor_urut
-    - alamat
-    - basis
-    - akun_medsos
-    - sumber_dana
-    - keterpaduan_kelompok
-    - pro_pn
-    - materi_lainnya [*string*]
-    - sarana_lainnya [*string*]
-  - [ ] Provinsi | **provinsies**
-    - nama
-    - kode
-  - [ ] Kabupaten Kota | **kabkots**
-    - provinsi_id
-    - nama
-    - kode
-  - [ ] Kecamatan | **kecamatans**
-    - kabupaten_kota_id
-    - nama
-    - kode
-  - [ ] Desa | **desas**
-    - kecamatan_id
-    - nama
-  - [ ] Jabatan | **jabatans**
-    - nama
-  - [ ] Surat Keputusan | **surat_keputusans**
-    - nomor
-    - tanggal
-    - dikeluarkan_oleh
-  - [ ] Materi | **materies**
-    - nama
-  - [ ] Sarana | **saranas**
-    - nama
-  - [ ] Mitra | **mitras**
-    - nama
+    - **user_id** [_foreignId_]
+  - [x] Jabatan | **jabatans**
+    - **nama** [_string_]
+  - [x] Provinsi | **provinsis**
+    - **nama** [_string_]
+    - **kode** [_string(**2**)_]
+  - [x] Kabupaten Kota | **kabkots**
+    - **provinsi_id** [_foreignId_]
+    - **nama** [_string_]
+    - **kode** [_string(**2**)_]
+  - [x] Kecamatan | **kecamatans**
+    - **kabkot_id** [_foreignId_]
+    - **nama** [_string_]
+    - **kode** [_string(**2**)_]
+  - [x] Desa | **desas**
+    - **kecamatan_id** [_foreignId_]
+    - **nama** [_string_]
+  - [x] Pembina | **pembinas**
+    - **user_id** [_foreignId_]
+    - **jabatan_id** [_foreignId_]
+    - **desa_id** [_foreignId_]
+    - **nomor_urut** [_string(**2**)_]
+  - [x] Surat Keputusan | **surat_keputusans**
+    - **nomor** [_string_]
+    - **tanggal** [_date_]
+    - **dikeluarkan_oleh** [_string_]
+  - [x] PIK-R | **pikrs**
+    - **user_id** [_foreignId_]
+    - **desa_id** [_foreignId_]
+    - **pembina_id** [_foreignId_]
+    - **sk_id** [_foreignId | nullable_]
+    - **nama** [_string_]
+    - **nomor_urut** [_string(**2**)_]
+    - **alamat** [_string_]
+    - **basis** [_string_]
+    - **akun_medsos** [_string_]
+    - **sumber_dana** [_string_]
+    - **keterpaduan_kelompok** [_boolean | default(**false**)_]
+    - **pro_pn** [_boolean | default(**false**)_]
+    - **materi_lainnya** [*string | nullable*]
+    - **sarana_lainnya** [*string | nullable*]
+  - [x] Materi | **materies**
+    - **nama** [_string_]
+  - [x] Sarana | **saranas**
+    - **nama** [_string_]
+  - [x] Mitra | **mitras**
+    - **nama** [_string_]
   - [ ] Pengurus | **penguruses**
-    - pikr_id
-    - nama
-    - nik
-    - jabatan
-    - hp
-    - pernah_pelatihan
-  - [ ] Laporan Kegiatan | **laporans**
-    - tanggal
-  - [ ] Pelayanan Informasi | **pelayanan_informasies**
-    - pikr_id
-    - materi_id
-    - laporan_id
-    - materi_lainnya
-    - nama
-    - tanggal
-    - jabatan_narsum
-    - nama_narsum
-    - jumlah_peserta
-  - [ ] Konseling Individu | **konseling_individus**
-    - pikr_id
-    - materi_id
-    - pengurus_id
-    - laporan_id
-    - materi_lainnya
-    - tanggal
-    - jumlah_cowok
-    - jumlah_cewek
-    - jumlah_rawal
-    - jumlah_rtengah
-    - jumlah_rakhir
-  - [ ] Konseling Kelompok | **konseling_kelompoks**
-    - pikr_id
-    - materi_id
-    - pengurus_id
-    - laporan_id
-    - materi_lainnya
-    - tanggal
-    - jumlah_cowok
-    - jumlah_cewek
-    - jumlah_rawal
-    - jumlah_rtengah
-    - jumlah_rakhir
-  - [ ] pikr_sarana
-    - pikr_id
-    - sarana_id
-    - status
-  - [ ] pikr_materi
-    - pikr_id
-    - materi_id
-    - status
-  - [ ] pikr_mitra
-    - pikr_id
-    - mitra_id
-    - mou
-    - bentuk_kerjasama
+    - **pikr_id** [_foreignId_]
+    - **nama** [_string_]
+    - **nik** [_string_]
+    - **jabatan** [_enum(Konselor Sebaya)_] <!-- FIXME enum berisi jabatan ->
+    - **hp** [_string_]
+    - **pernah_pelatihan** [_boolean | default(**false**)_]
+  - [x] Laporan Kegiatan | **laporans**
+    - **pikr_id** [_foreignId_]
+    - **tanggal** [_date_]
+  - [x] Pelayanan Informasi | **pelayanan_informasis**
+    - **materi_id** [_foreignId | nullable_]
+    - **laporan_id** [_foreignId_]
+    - **materi_lainnya** [_string | nullable_]
+    - **nama** [_string_]
+    - **tanggal** [_date_]
+    - **jabatan_narsum** [_string_]
+    - **nama_narsum** [_string_]
+    - **jumlah_peserta** [_integer_]
+  - [x] Konseling Individu | **konseling_individus**
+    - **materi_id** [_foreignId | nullable_]
+    - **laporan_id** [_foreignId_]
+    - **pengurus_id** [_foreignId_]
+    - **materi_lainnya** [_string | nullable_]
+    - **tanggal** [_date_]
+    - **jumlah_cowok** [_integer_]
+    - **jumlah_cewek** [_integer_]
+    - **jumlah_rawal** [_integer_]
+    - **jumlah_rtengah** [_integer_]
+    - **jumlah_rakhir** [_integer_]
+  - [x] Konseling Kelompok | **konseling_kelompoks**
+    - **materi_id** [_foreignId | nullable_]
+    - **laporan_id** [_foreignId_]
+    - **pengurus_id** [_foreignId_]
+    - **materi_lainnya** [_string | nullable_]
+    - **tanggal** [_date_]
+    - **jumlah_cowok** [_integer_]
+    - **jumlah_cewek** [_integer_]
+    - **jumlah_rawal** [_integer_]
+    - **jumlah_rtengah** [_integer_]
+    - **jumlah_rakhir** [_integer_]
+  - [x] pikr_sarana
+    - **pikr_id** [_foreignId_]
+    - **sarana_id** [_foreignId_]
+    - **status** [_boolean | default(**false**)_]
+  - [x] materi_pikr
+    - **pikr_id** [_foreignId_]
+    - **materi_id** [_foreignId_]
+    - **status** [_boolean | default(**false**)_]
+  - [x] mitra_pikr
+    - **pikr_id** [_foreignId_]
+    - **mitra_id** [_foreignId_]
+    - **mou** [_boolean | default(**false**)_]
+    - **bentuk_kerjasama** [_string_]
 - [ ] Factories
 - [ ] Seeders
-- [ ] Relations
+- Relations
   - [ ] User - Admin | **One To One**
   - [ ] User - Pembina | **One To One**
   - [ ] User - PIK-R | **One To One**
@@ -137,9 +135,9 @@
   - [ ] PIK-R - Materi | **Many To Many**
   - [ ] PIK-R - Sarana | **Many To Many**
   - [ ] PIK-R - Mitra | **Many To Many**
-- [ ] Register
+- Register
   - [ ] PIK-R
-- [ ] Login
+- Login
   - [ ] Admin
   - [ ] Pembina
   - [ ] PIK-R
